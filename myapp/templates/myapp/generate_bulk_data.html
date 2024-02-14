@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Data Generation</title>
+</head>
+<body>
+    <h1>Bulk Data Generation</h1>
+    <ul>
+        {% if bulk_data %}
+            {% for record in bulk_data %}
+                <li>Name: {{ record.name }}, Email: {{ record.email }}</li>
+            {% endfor %}
+        {% else %}
+            <li>No data available yet.</li>
+        {% endif %}
+    </ul>
+    {% comment %} {% if bulk_data.task_id %}
+        <a href="{% url 'check_result' bulk_data.task_id %}">Check Task Result</a>
+    {% endif %} {% endcomment %}
+</body>
+</html>

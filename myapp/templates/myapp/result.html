@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Result</title>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </nav>
+        <h1>Result Page</h1>
+        <hr />
+        {% if result %}
+        <h5>Task ID: {{result.id}}</h5>
+        <h5>Task ID: {{result.task_id}}</h5>
+        <h5>Task State: {{result.state}}</h5>
+        <h5>Task Status: {{result.status}}</h5>
+        {% comment %} <h5>Result Value: {{result.result}}</h5> {% endcomment %}
+        <ul>
+            {% for record in result.result %}
+            <li>Name: {{ record.name }}, Email: {{ record.email }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </body>
+</html>
